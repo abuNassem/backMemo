@@ -51,7 +51,7 @@ oAuthGoogle.get('/auth/google/callback',
     if (userSame && userSame.googleId === idUser) {
       const user = await userSame.createTokens()
       console.log('login')
-           res.redirect(`http://localhost:5173/auth?token=${user.token}`); 
+           res.redirect(`https://backmemo.onrender.com/auth?token=${user.token}`); 
     } else if (userSame && userSame.googleId !== idUser) {
       return res.status(404).json({ message: 'this email already exists' }) 
     } else {
