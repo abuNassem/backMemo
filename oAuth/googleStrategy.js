@@ -43,9 +43,9 @@ oAuthGoogle.get('/auth/google/callback',
       return res.status(404).json({ message: 'unathuntaction' }) 
     }
 
-    const idUser = req.user.id
+const idUser = req.user.id || req.user.sub
     const emailUser = req.user.emails[0].value
-    const nameUser = req.user.displayName
+    const nameUser = req.user.displayName.slice(0,14)
 
     const userSame = await Users.findOne({ email: emailUser })
 
