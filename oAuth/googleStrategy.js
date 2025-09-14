@@ -20,7 +20,7 @@ oAuthGoogle.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID:process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://backmemo.onrender.com/auth/google/callback" 
+    callbackURL: "http://localhost:3000/auth/google/callback" 
   },
   (accessToken, refreshToken, profile, done) => {
     return done(null, profile); // هنا ممكن تخزن المستخدم في DB
@@ -31,6 +31,7 @@ passport.deserializeUser((obj, done) => done(null, obj));
 
 oAuthGoogle.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'],  prompt: 'select_account' })
+  
 );
 
 
@@ -51,7 +52,7 @@ oAuthGoogle.get('/auth/google/callback',
     if (userSame && userSame.googleId === idUser) {
       const user = await userSame.createTokens()
       console.log('login')
-           res.redirect(`https://backmemo.onrender.com/auth?token=${user.token}`); 
+           res.redirect(`http://localhost:5173/auth?token=${user.token}`); 
     } else if (userSame && userSame.googleId !== idUser) {
       return res.status(404).json({ message: 'this email already exists' }) 
     } else {
@@ -60,9 +61,6 @@ oAuthGoogle.get('/auth/google/callback',
         email: emailUser,
         passWord: rdmPass,
         userName: nameUser,
-        items: [],
-        favorit: [],
-        orders: [],
         googleId: idUser
       })
 

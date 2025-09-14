@@ -5,8 +5,7 @@ const dburl = process.env.DB_URL;
 
 mongoose.connect(dburl)
   .then(() => {
-//     const collection = mongoose.connection.collection('users');
-
+    
 //     collection.dropIndex("orders.orderId_1").catch(err => {
 //       if (err.codeName !== 'IndexNotFound') console.error(err);
 //     });
