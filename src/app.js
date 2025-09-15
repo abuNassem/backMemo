@@ -14,7 +14,7 @@ const app = express();
 const urlPublic = path.join(__dirname,'../public');
 
 app.use(cors({
-  origin: ['http://localhost:4173','https://my-shop-weld-tau.vercel.app','http://localhost:5173'],
+  origin: ['http://localhost:4173','https://commerce12s.netlify.app','http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
   credentials: true
 }));
