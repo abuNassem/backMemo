@@ -86,7 +86,7 @@ req.user.tokens=req.user.tokens.filter(item=>{
     console.log(req.user)
 }
 catch(error){
-  console.log(error)
+  console.log('logout error'+error)
 }
    
 
