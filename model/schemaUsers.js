@@ -49,7 +49,7 @@ const users=new mongo.Schema({
         subcategory: String,
         rating: Number,
         addedDate: String,
-        owner: { type: String, required: true }
+        owner: { type: String}
       }
     ],
     default: [] // يبدأ فارغ
