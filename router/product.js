@@ -31,7 +31,6 @@ productRouter.get('/productapi/:id', async (req, res) => {
     return res.status(404).json({ message: 'Product not found' });
   }
   res.json(data);
-  console.log('added to server');
 });
 
 // to up date element

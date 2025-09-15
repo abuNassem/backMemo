@@ -31,6 +31,7 @@ const users=new mongo.Schema({
   items: {
     type: [
       {
+        id:Number,
         title: String,
         cat_prefix: String,
         img: String,
@@ -57,7 +58,8 @@ const users=new mongo.Schema({
   // المفضلة
   favorit: {
     type: [
-      {
+      {        
+        id:Number,
         title: { type: String, required: true },
         img: { type: String, required: true },
         owner: { type: String, required: true }
@@ -70,12 +72,13 @@ const users=new mongo.Schema({
   orders: {
     type: [
       {
+
         address: { type: String, required: true },
         phone: { type: String, required: true },
         fullName: { type: String, required: true, trim: true },
         items: [
-          {
-            id: { type: Number, required: true },
+          {        id:Number,
+
             title: String,
             cat_prefix: String,
             img: String,
