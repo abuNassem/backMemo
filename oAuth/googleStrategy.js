@@ -52,7 +52,7 @@ const idUser = req.user.id || req.user.sub
     if (userSame && userSame.googleId === idUser) {
       const user = await userSame.createTokens()
       console.log('login')
-           res.redirect(`http://localhost:5173/auth?token=${user.token}`); 
+           res.redirect(`https://commerce12s.netlify.app/auth?token=${user.token}`); 
     } else if (userSame && userSame.googleId !== idUser) {
       return res.status(404).json({ message: 'this email already exists' }) 
     } else {
@@ -67,7 +67,7 @@ const idUser = req.user.id || req.user.sub
       const user = await newUser.createTokens()
             console.log('sign up')
 
-           res.redirect(`http://localhost:5173/auth?token=${user.token}`); 
+           res.redirect(`https://commerce12s.netlify.app/auth?token=${user.token}`); 
 
     }
   } catch (error) {
