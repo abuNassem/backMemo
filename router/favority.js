@@ -5,13 +5,11 @@ const favorityRouter=require('express').Router()
 
 favorityRouter.post('/favorit',auth,async(req,res)=>{
   const favoItem=req.body
-  console.log(req.user)
   const newData=await Users.findOneAndUpdate({email:req.user.email},{$push:{favorit:favoItem}},{new:true})
   res.status(200).json(newData)
   
 })
 
-// list favorit's user
 favorityRouter.get('/favorit',auth,async(req,res)=>{
     try{
         const data=await  Users.findOne({email:req.user.email})

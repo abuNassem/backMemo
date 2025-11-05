@@ -14,7 +14,7 @@ const app = express();
 const urlPublic = path.join(__dirname,'../public');
 
 app.use(cors({
-  origin: ['http://localhost:4173','https://commerce12s.netlify.app','https://www.commerce12s.netlify.app','http://localhost:5173'],
+  origin: ['http://localhost:4173','https://memo-shop1.netlify.app/','http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
   credentials: true
 }));
