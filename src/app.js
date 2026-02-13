@@ -11,11 +11,11 @@ const categoryRouter = require('../router/category');
 const oAuthGoogle = require('../oAuth/googleStrategy');
 
 const app = express();
-const urlPublic = path.join(__dirname,'../public');
+const urlPublic = path.join(__dirname, '../public');
 
 app.use(cors({
-  origin: ['http://localhost:4173','https://memo-shop1.netlify.app','http://localhost:5173'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
+  origin: ['https://front-memo.vercel.app', 'https://memo-shop1.netlify.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true
 }));
 
@@ -43,6 +43,6 @@ app.use(oAuthGoogle)
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`http://localhost:${port}/productapi`);
-    console.log(`http://localhost:${port}/category`);
+  console.log(`http://localhost:${port}/productapi`);
+  console.log(`http://localhost:${port}/category`);
 });
